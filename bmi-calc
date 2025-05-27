@@ -55,7 +55,7 @@
   <div class="container">
     <h1>BMI Calculator</h1>
     <input type="number" id="weight" placeholder="Enter weight (kg)">
-    <input type="number" id="height" placeholder="Enter height (m)">
+    <input type="number" id="height" placeholder="Enter height (cm)">
     <button onclick="calculateBMI()">Calculate</button>
     <div class="result" id="result"></div>
   </div>
@@ -71,14 +71,14 @@
         return;
       }
 
-      let bmi = weight / (height * height);
+      let bmi = weight / ((height * height)/10000);
       let message = `Your BMI is ${bmi.toFixed(2)}. `;
 
       if (bmi < 18.5) {
         message += "You are underweight.";
-      } else if (bmi < 24.9) {
+      } else if (bmi < 25) {
         message += "You have a normal weight.";
-      } else if (bmi < 29.9) {
+      } else if (bmi < 30) {
         message += "You are overweight.";
       } else {
         message += "You are obese.";
